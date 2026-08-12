@@ -4,47 +4,108 @@ def limpar_tela():
     os.system('cls')
 
 def pausar():
-    input('[ENTER] para continuar...')
+    print('\n' + '─' * 42)
+    input('  Pressione [ENTER] para continuar...')
 
 def verificar_senha(senha):
     if senha == senha_adm:
         return True
     return False
 
-
 senha_adm = '4321'
 
 while True:
     limpar_tela()
-    print('    SISTEMA DA BIBLIOTECA     ')
-    print(' [1] - ACESSO ADM             ')
-    print(' [2] - ACESSO ESTUDANTE       ')
-    print(' [0] - SAIR                   ')
-    op = input('DIGITE A OPÇÃO DE ACESSO: ')
+    print('┌────────────────────────────────────────┐')
+    print('│          SISTEMA DE BIBLIOTECA         │')
+    print('├────────────────────────────────────────┤')
+    print('│  [1] - ACESSO ADM                      │')
+    print('│  [2] - ACESSO ESTUDANTE                │')
+    print('│  [0] - SAIR                            │')
+    print('└────────────────────────────────────────┘')
+    op = input('\n> Digite a opção desejada: ')
 
     if op == '1':
-        senha = input('DIGITE A SENHA: ')
-        verificar = verificar_senha(senha)
-        if verificar == True:
-            print(' ACESSO ADM  ')
-            print('[1]- CONTROLE DE ESTUDANTES')
-            print('[2]- CONTROLE DE LIVROS')
-            print('[3]- NOVO EMPRÉSTIMO')
-            print('[0]- VOLTAR PARA O MENU')
+        limpar_tela()
+        print('┌────────────────────────────────────────┐')
+        print('│             AUTENTICAÇÃO               │')
+        print('└────────────────────────────────────────┘')
+        senha = input('  Digite a senha de administrador: ')
+        
+        if verificar_senha(senha):
+            limpar_tela()
+            print('┌────────────────────────────────────────┐')
+            print('│               ACESSO ADM               │')
+            print('├────────────────────────────────────────┤')
+            print('│  [1] - Novo Empréstimo                 │')
+            print('│  [2] - Controle de Estudantes          │')
+            print('│  [3] - Controle de Livros              │')
+            print('│  [0] - Voltar para o Menu              │')
+            print('└────────────────────────────────────────┘')
+            sub_op = input('\n> Opção: ')
+
+            if sub_op == '1':
+                limpar_tela()
+                print('┌────────────────────────────────────────┐')
+                print('│            NOVO EMPRÉSTIMO             │')
+                print('└────────────────────────────────────────┘')
+                cliente = input('  ID do Cliente: ')
+                livro = input('  ID do Livro: ')
+                data = input('  Data do Empréstimo: ')
+                pausar()
+
+            elif sub_op == '2':
+                limpar_tela()
+                print('┌────────────────────────────────────────┐')
+                print('│         CONTROLE DE ESTUDANTES         │')
+                print('├────────────────────────────────────────┤')
+                print('│  [1] - Cadastrar Estudante             │')
+                print('│  [2] - Pesquisar Estudante             │')
+                print('│  [3] - Editar Estudante                │')
+                print('│  [4] - Excluir Estudante               │')
+                print('│  [0] - Voltar                          │')
+                print('└────────────────────────────────────────┘')
+                pausar()
+
+            elif sub_op == '3':
+                limpar_tela()
+                print('┌────────────────────────────────────────┐')
+                print('│           CONTROLE DE LIVROS           │')
+                print('├────────────────────────────────────────┤')
+                print('│  [1] - Cadastrar Livro                 │')
+                print('│  [2] - Ver Livros Disponíveis          │')
+                print('│  [3] - Ver Estoque Completo            │')
+                print('│  [0] - Voltar                          │')
+                print('└────────────────────────────────────────┘')
+                pausar()
+        else:
+            print('\n[!] Senha incorreta! Acesso negado.')
             pausar()
 
     elif op == '2':
-        cpf = int(input('DIGITE SEU CPF: '))
-        print(' ACESSO ESTUDANTE ')
-        print('[1]- VERIFICAR EMPRÉSTIMOS' )
-        print('[2]- VER MEUS DADOS')
-        print('[0]- VOLTAR PARA O MENU')
-        pausar()
+        limpar_tela()
+        print('┌────────────────────────────────────────┐')
+        print('│            ACESSO ESTUDANTE            │')
+        print('└────────────────────────────────────────┘')
+        cpf = input('  Digite seu CPF: ')
         
-    elif op == '0':
-        print('SAINDO DO SISTEMA')
-        break
-    else:
-        print('OPÇÃO INVÁLIDA! DIGITE UMA DAS OPÇÕES ACIMA!')
+        limpar_tela()
+        print('┌────────────────────────────────────────┐')
+        print('│             PAINEL ESTUDANTE           │')
+        print('├────────────────────────────────────────┤')
+        print('│  [1] - Verificar Empréstimos           │')
+        print('│  [2] - Ver Meus Dados                  │')
+        print('│  [0] - Voltar                          │')
+        print('└────────────────────────────────────────┘')
         pausar()
-    
+
+    elif op == '0':
+        limpar_tela()
+        print('┌────────────────────────────────────────┐')
+        print('│      Encerrando o sistema... Até já!   │')
+        print('└────────────────────────────────────────┘\n')
+        break
+        
+    else:
+        print('\n[!] Opção inválida. Escolha uma das opções do menu.')
+        pausar()
