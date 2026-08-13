@@ -244,9 +244,10 @@ while True:
         print('├────────────────────────────────────────┤')
         print('│  [1] - Verificar Empréstimos           │')
         print('│  [2] - Ver Meus Dados                  │')
+        print('│  [3] - Buscar livro por Gênero         │')
+        print('│  [4] - Buscar livro por Nome           │')
         print('│  [0] - Voltar                          │')
         print('└────────────────────────────────────────┘')
-        pausar()
         sup_op = int(input('>: '))
         if sup_op == 1:
             print('┌────────────────────────────────────────┐')
@@ -273,11 +274,25 @@ while True:
                 print('│             VOLTANDO AO MENU           │')
                 print('└────────────────────────────────────────┘')
                 pausar()
+            
         elif sup_op == 2:
             print('┌────────────────────────────────────────┐')
             print('│           VER MEUS DADOS               │')
             print('├────────────────────────────────────────┤')
             #AGUARDAR FUNÇÃO DE VER DADOS DO ESTUDANTE
+        elif sup_op == 3:
+            print('┌────────────────────────────────────────┐')
+            print('│            BUSCAR POR GÊNERO           │')
+            print('├────────────────────────────────────────┤')
+            ver_genero()
+            pausar()
+
+        elif sup_op == 4:
+            print('┌────────────────────────────────────────┐')
+            print('│             BUSCAR POR NOME            │')
+            print('├────────────────────────────────────────┤')
+            buscar_por_nome()
+            pausar()
 
 
     elif op == '0':
