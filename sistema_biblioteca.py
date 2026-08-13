@@ -1,4 +1,5 @@
 import os
+from time import sleep
 
 Livros = ['O Poder do Hábito', 'Mais Esperto que o Diabo', 'As Coisas que Você só Vê', 'Steve Jobs', 'Minha História', 'Malcolm X', 'O Senhor dos Anéis', 'Harry Potter', 'O Hobbit', 'O Iluminado', 'It: A Coisa', 'Drácula', 'VIVA', 'Orgulho e Preconceito', 'A Culpa é das Estrelas', 'O Código Da Vinci', 'A Garota no Trem', 'Garota Exemplar', 'O Exorcista', 'O Cemitério', 'Bird Box']
 
@@ -26,25 +27,29 @@ def exibir_generos():
         print(f'{i + 1}. {Generos_Base[i]}', end = ' ')
 
 def cadastrar_livro():
-    nome = input('DIGITE O NOME DO LIVRO: ')
-    quantidade = int(input('QUANTIDADE: '))
-    
-    if nome in Livros:
-        posicao = Livros.index(nome) 
-        Quantidade[posicao] += quantidade  
-        print(f'\nLivro já existente! Foram adicionadas {quantidade} unidades ao estoque.')
-    
-    else:
-        exibir_generos()
-        print()
-        escolha = int(input('ESCOLHA O GÊNERO: ')) 
-        pos = escolha - 1
-        genero_escolhido = Generos_Base[pos]
+    while True:
+        nome = input('DIGITE O NOME DO LIVRO: ')
+        quantidade = int(input('QUANTIDADE: '))
         
-        Generos_cadastrados.append(genero_escolhido)
-        Livros.append(nome)
-        Quantidade.append(quantidade)
-        print('\nLivro cadastrado com sucesso!')
+        if nome in Livros:
+            posicao = Livros.index(nome) 
+            Quantidade[posicao] += quantidade  
+            print(f'\nLivro já existente! Foram adicionadas {quantidade} unidades ao estoque.')
+        
+        else:
+            exibir_generos()
+            print()
+            escolha = int(input('ESCOLHA O GÊNERO: ')) 
+            pos = escolha - 1
+            genero_escolhido = Generos_Base[pos]
+            
+            Generos_cadastrados.append(genero_escolhido)
+            Livros.append(nome)
+            Quantidade.append(quantidade)
+            print('\nLivro cadastrado com sucesso!')
+        opcao = input('\nDigite [1] para cadastrar outro livro ou [0] para sair: ')
+        if opcao == '0':
+            break
 
 def ver_genero():
     exibir_generos()
