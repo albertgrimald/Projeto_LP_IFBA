@@ -28,14 +28,23 @@ def exibir_generos():
 def cadastrar_livro():
     nome = input('DIGITE O NOME DO LIVRO: ')
     quantidade = int(input('QUANTIDADE: '))
-    exibir_generos()
-    print()
-    escolha = int(input('ESCOLHA O GÊNERO: ')) 
-    pos = escolha - 1
-    genero_escolhido = Generos_Base[pos]
-    Generos_cadastrados.append(genero_escolhido)
-    Livros.append(nome)
-    Quantidade.append(quantidade)
+    
+    if nome in Livros:
+        posicao = Livros.index(nome) 
+        Quantidade[posicao] += quantidade  
+        print(f'\nLivro já existente! Foram adicionadas {quantidade} unidades ao estoque.')
+    
+    else:
+        exibir_generos()
+        print()
+        escolha = int(input('ESCOLHA O GÊNERO: ')) 
+        pos = escolha - 1
+        genero_escolhido = Generos_Base[pos]
+        
+        Generos_cadastrados.append(genero_escolhido)
+        Livros.append(nome)
+        Quantidade.append(quantidade)
+        print('\nLivro cadastrado com sucesso!')
 
 def ver_genero():
     exibir_generos()
@@ -47,10 +56,12 @@ def ver_genero():
     
     print(f'\n=== LIVROS DO GÊNERO: {genero_procurado} ===')
     print('-----------------------------------------')
-    
-    for i in range(len(Livros)):       
-        if Generos_cadastrados[i] == genero_procurado:
-            print(f'-> {Livros[i]} | Quantidade: {Quantidade[i]}')
+    if genero_procurado not in Generos_cadastrados:
+        print('  Nenhum livro cadastrado neste gênero.')
+    else:
+        for i in range(len(Livros)):       
+            if Generos_cadastrados[i] == genero_procurado:
+                print(f'-> {Livros[i]} | Quantidade: {Quantidade[i]}')
 
 def buscar_por_nome():
     print('\n   === BUSCAR LIVRO POR NOME ===')
@@ -76,14 +87,16 @@ def buscar_por_nome():
 def ver_estoque_geral():
     print('\n   === ESTOQUE GERAL DE LIVROS ===')
     print('-----------------------------------------')
-    
-    for i in range(len(Livros)):
-        
-        nome_do_livro = Livros[i]
-        genero_do_livro = Generos_cadastrados[i]
-        quantidade_do_livro = Quantidade[i]
-        
-        print(f'  -> Livro: {nome_do_livro} | Gênero: {genero_do_livro} | Qtd: {quantidade_do_livro}')
+    if len(Livros) == 0:
+        print('  Nenhum livro cadastrado no estoque.')
+    else:
+        for i in range(len(Livros)):
+            
+            nome_do_livro = Livros[i]
+            genero_do_livro = Generos_cadastrados[i]
+            quantidade_do_livro = Quantidade[i]
+            
+            print(f'  -> Livro: {nome_do_livro} | Gênero: {genero_do_livro} | Qtd: {quantidade_do_livro}')
 
 
 senha_adm = '4321'
