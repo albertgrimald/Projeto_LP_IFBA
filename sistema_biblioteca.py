@@ -181,47 +181,51 @@ while True:
                     print('├────────────────────────────────────────┤')
                     buscar_por_nome()
                     pausar()
-        elif sub_op == '4':
-            limpar_tela()
-            print('┌────────────────────────────────────────┐')
-            print('│         CONTROLE DE EMPRÉSTIMOS        │')
-            print('├────────────────────────────────────────┤')
-            print('│  [1] - Ver Empréstimos Ativos          │')
-            print('│  [2] - Histórico de Empréstimos        │')
-            print('│  [0] - Voltar                          │')
-            print('└────────────────────────────────────────┘')
-            op = int(input('\n> Opção: '))
-            if op == 1:
+            elif sub_op == '4':
+                limpar_tela()
                 print('┌────────────────────────────────────────┐')
-                print('│         EMPRÉSTIMOS ATIVOS             │')
+                print('│         CONTROLE DE EMPRÉSTIMOS        │')
                 print('├────────────────────────────────────────┤')
-                #AGUARDAR FUNÇÃO DE VER EMPRÉSTIMOS ATIVOS
-            elif op == 2:
-                print('┌────────────────────────────────────────┐')
-                print('│       HISTÓRICO DE EMPRÉSTIMOS         │')
-                print('├────────────────────────────────────────┤')
-                #AGUARDAR FUNÇÃO DE VER HISTÓRICO DE EMPRÉSTIMOS
+                print('│  [1] - Ver Empréstimos Ativos          │')
+                print('│  [2] - Histórico de Empréstimos        │')
+                print('│  [0] - Voltar                          │')
+                print('└────────────────────────────────────────┘')
+                op = int(input('\n> Opção: '))
+                if op == 1:
+                    print('┌────────────────────────────────────────┐')
+                    print('│         EMPRÉSTIMOS ATIVOS             │')
+                    print('├────────────────────────────────────────┤')
+                    pausar()
+                    #AGUARDAR FUNÇÃO DE VER EMPRÉSTIMOS ATIVOS
+                elif op == 2:
+                    print('┌────────────────────────────────────────┐')
+                    print('│       HISTÓRICO DE EMPRÉSTIMOS         │')
+                    print('├────────────────────────────────────────┤')
+                    pausar()
+                    #AGUARDAR FUNÇÃO DE VER HISTÓRICO DE EMPRÉSTIMOS
 
-        elif sub_op == '5':
-            limpar_tela()
-            print('┌────────────────────────────────────────┐')
-            print('│         CONTROLE DE DEVOLUÇÕES         │')
-            print('├────────────────────────────────────────┤')
-            print('│  [1] - Registrar Devolução             │')
-            print('│  [2] - Histórico de Devoluções         │')
-            print('│  [0] - Voltar                          │')
-            print('└────────────────────────────────────────┘')
-            op = int(input('\n> Opção: '))
-            if op == 1:
+            elif sub_op == '5':
+                limpar_tela()
                 print('┌────────────────────────────────────────┐')
-                print('│          REGISTRAR DEVOLUÇÃO           │')
+                print('│         CONTROLE DE DEVOLUÇÕES         │')
                 print('├────────────────────────────────────────┤')
-                #AGUARDAR FUNÇÃO DE REGISTRAR DEVOLUÇÃO
-            elif op == 2:
-                print('┌────────────────────────────────────────┐')
-                print('│       HISTÓRICO DE DEVOLUÇÕES          │')
-                print('├────────────────────────────────────────┤')
-                #AGUARDAR FUNÇÃO DE VER HISTÓRICO DE DEVOLUÇÕES
+                print('│  [1] - Registrar Devolução             │')
+                print('│  [2] - Histórico de Devoluções         │')
+                print('│  [0] - Voltar                          │')
+                print('└────────────────────────────────────────┘')
+                op = int(input('\n> Opção: '))
+                if op == 1:
+                    print('┌────────────────────────────────────────┐')
+                    print('│          REGISTRAR DEVOLUÇÃO           │')
+                    print('├────────────────────────────────────────┤')
+                    pausar()
+                    #AGUARDAR FUNÇÃO DE REGISTRAR DEVOLUÇÃO
+                elif op == 2:
+                    print('┌────────────────────────────────────────┐')
+                    print('│       HISTÓRICO DE DEVOLUÇÕES          │')
+                    print('├────────────────────────────────────────┤')
+                    pausar()
+                    #AGUARDAR FUNÇÃO DE VER HISTÓRICO DE DEVOLUÇÕES
 
         else:
             print('\n[!] Senha incorreta! Acesso negado.')
