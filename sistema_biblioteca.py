@@ -211,6 +211,38 @@ while True:
         print('│  [0] - Voltar                          │')
         print('└────────────────────────────────────────┘')
         pausar()
+        sup_op = int(input('>: '))
+        if sup_op == 1:
+            print('┌────────────────────────────────────────┐')
+            print('│         VERIFICAR EMPRÉSTIMOS          │')
+            print('├────────────────────────────────────────┤')
+            print('│  [1] - Empréstimos Ativos              │')
+            print('│  [2] - Histórico de Empréstimos        │')
+            print('│  [0] - Voltar                          │')
+            print('└────────────────────────────────────────┘')
+            pausar()
+            op = int(input('>: '))
+            if op == 1:
+                print('┌────────────────────────────────────────┐')
+                print('│         EMPRÉSTIMOS ATIVOS             │')
+                print('├────────────────────────────────────────┤')
+                #AGUARDAR FUNÇÃO DE VER EMPRÉSTIMOS ATIVOS
+            elif op == 2:
+                print('┌────────────────────────────────────────┐')
+                print('│       HISTÓRICO DE EMPRÉSTIMOS         │')
+                print('├────────────────────────────────────────┤')
+                #AGUARDAR FUNÇÃO DE VER HISTÓRICO DE EMPRÉSTIMOS
+            elif op == 0:
+                print('┌────────────────────────────────────────┐')
+                print('│             VOLTANDO AO MENU           │')
+                print('└────────────────────────────────────────┘')
+                pausar()
+        elif sup_op == 2:
+            print('┌────────────────────────────────────────┐')
+            print('│           VER MEUS DADOS               │')
+            print('├────────────────────────────────────────┤')
+            #AGUARDAR FUNÇÃO DE VER DADOS DO ESTUDANTE
+
 
     elif op == '0':
         limpar_tela()
